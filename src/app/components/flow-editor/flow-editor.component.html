@@ -1,0 +1,36 @@
+<header>
+    <h2>Drawflow</h2>    
+  </header>
+  <div class="wrapper">
+    <div class="col">
+      <div class="drag-drawflow" draggable="true" (dragstart)="drag($event)" data-node="facebook">
+        <i class="fab fa-facebook"></i><span> Facebook</span>
+      </div>     
+
+
+    </div>
+    <div class="col-right">
+      <div class="menu">
+        <ul>
+          <li (click)="editor.changeModule('Home'); changeModule($event);" class="selected">Home</li>
+          <li (click)="editor.changeModule('Other'); changeModule($event);" >Other Module</li>
+        </ul>
+      </div>
+      <div id="drawflow" (drop)="drop($event)" (dragover)="allowDrop($event)">
+
+        <div class="btn-export" (click)="swal.fire({ title: 'Export',
+        html: '<pre><code>'+json.stringify(editor.export(), null,4)+'</code></pre>'
+        })">Export</div>
+        <div class="btn-clear" (click)="editor.clearModuleSelected()">Clear</div>
+        <div class="btn-lock">
+          <i [style.display]="lock_display" class="fas fa-lock" (click)="editor.editor_mode='fixed'; changeMode('lock');"></i>
+          <i [style.display]="unlock_display" class="fas fa-lock-open" (click)="editor.editor_mode='edit'; changeMode('unlock');" style="display:none;"></i>
+        </div>
+        <div class="bar-zoom">
+          <i class="fas fa-search-minus" (click)="editor.zoom_out()"></i>
+          <i class="fas fa-search" (click)="editor.zoom_reset()"></i>
+          <i class="fas fa-search-plus" (click)="editor.zoom_in()"></i>
+        </div>
+      </div>
+    </div>
+  </div>
