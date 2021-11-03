@@ -162,10 +162,8 @@ cursor: pointer;
 }
 
 #drawflow {
-  position: relative;
-  width: calc(100vw - 301px);
-  height: calc(100% - 50px);
-  top: 40px;
+  position: relative;  
+  height: 100%;
   background: var(--background-color);
   background-size: 25px 25px;
   background-image:

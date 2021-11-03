@@ -1,0 +1,44 @@
+<main class="content">
+    <div class="container-fluid p-0">
+        <div class="row p-3">                    
+            <button mat-raised-button color="primary" class="col-2">New Workflow</button>          
+            <div class="col-3">
+                <form class="form-inline md-form form-sm">
+                    <input class="form-control shadow form-control-sm mr-3 w-75" type="text" placeholder="Search" aria-label="Search"
+                      mdbInput>
+                </form>
+            </div> 
+        </div>           
+        <div class="mb-3">
+        </div>
+        <div class="col-12">
+            <div class="card">       
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Created</th>
+                            <th>Status</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let flow of flowList">
+                            <td>                       
+                                {{flow.name}}
+                            </td>
+                            <td>{{flow.createdDate}}</td>
+                            <td>{{flow.status}}</td>
+                            <td class="table-action">
+                                <a href="#"><i class="align-middle" data-feather="edit-2"></i></a>
+                                <a href="#"><i class="align-middle" data-feather="trash"></i></a>
+                            </td>
+                        </tr>                
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</main>
+
+
